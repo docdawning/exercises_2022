@@ -9,6 +9,13 @@
             "name": "Launch Colourful",
             "request": "launch",
             "mainClass": "Colourful",
+            "projectName": "exercises_2022.git_499a3bde"
+        },
+        {
+            "type": "java",
+            "name": "Launch Colourful",
+            "request": "launch",
+            "mainClass": "Colourful",
             "projectName": "meta.git_32749941"
         },
         {
