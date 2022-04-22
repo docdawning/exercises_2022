@@ -1,0 +1,1 @@
+This is my solution implementation based on problem stated here: https://algorithms.tutorialhorizon.com/colorful-numbers/
