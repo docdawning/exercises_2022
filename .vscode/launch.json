@@ -26,6 +26,13 @@
             "projectName": "meta.git_32749941"
         },
         {
+            "type": "java",
+            "name": "MergeSort",
+            "request": "launch",
+            "mainClass": "MergeSort",
+            "cwd": "${workspaceFolder}\\MergeSort"
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
