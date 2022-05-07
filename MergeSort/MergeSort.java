@@ -1,69 +1,55 @@
 public class MergeSort {
     private static void mergeSort(int[] unsorted) {
-        System.out.print("\nBefore: ");
+        System.out.print("\n\nBefore: ");
         printArray(unsorted);
         mergeSort(unsorted, 0, unsorted.length);
-        System.out.print("After: ");
+        System.out.print("\nAfter: ");
         printArray(unsorted);
     }
 
-    private static void mergeSort(int[] unsorted, int startIndex, int endIndex) {
-        //System.out.print("["+startIndex+":"+endIndex+"] ");
+    private static void mergeSort(int[] array, int startIndex, int endIndex) {
+        //recursion base case is when startIndex and endIndex are equal
+        if ((endIndex-startIndex) <= 1) return;
 
-        //recursion base case
-        if ((endIndex - startIndex) <= 1) return;
+        //split array sections to sort in to halves
+        int middle = ((endIndex - startIndex) / 2) + startIndex;
+        mergeSort(array, startIndex, middle);
+        mergeSort(array, middle, endIndex);
 
-        //sort halves separately
-        int middle =((endIndex - startIndex) / 2)+startIndex;
-        mergeSort(unsorted, startIndex, middle);
-        mergeSort(unsorted, middle, endIndex);
-
-        //merge sorted halves
-        mergeHalves(unsorted, startIndex, middle, endIndex);
+        //merge the respective halves back together
+        mergeHalves(array, startIndex, middle, endIndex);
     }
 
-/*
     private static void mergeHalves(int[] array, int startIndex, int middle, int endIndex) {
-
-    }
-*/
-    private static void mergeHalves(int[] array, int startIndex, int middle, int endIndex) {
-        int leftIndex = startIndex;
-        int rightIndex = middle;
-
-        //stage our sorting here
         int[] temp = new int[array.length];
         int tempIndex = startIndex;
 
+        int leftIndex = startIndex;
+        int rightIndex = middle;
+
         while (leftIndex < middle && rightIndex < endIndex) {
             if (array[leftIndex] < array[rightIndex]) {
-                temp[tempIndex++] = array[leftIndex++]; 
+                temp[tempIndex++] = array[leftIndex++];
             } else {
                 temp[tempIndex++] = array[rightIndex++];
             }
         }
-        
-        //copy any remaining uncopied values over to the temp array
-        while(leftIndex < middle) {
-            temp[tempIndex++] = array[leftIndex++];
-        }
 
-        while(rightIndex < endIndex) {
-            temp[tempIndex++] = array[rightIndex++];
-        }
+        //any left over elements from either side can now be copied over to temp
+        while (leftIndex < middle) temp[tempIndex++] = array[leftIndex++];
+        while (rightIndex < endIndex) temp[tempIndex++] = array[rightIndex++];
 
-        //copy over values that were staged in temp array to the main array
-        for (int i=startIndex;i<endIndex;i++) {
+        //now copy over the elements from temp back to array
+        for (int i=startIndex;i<endIndex;i++)
             array[i] = temp[i];
-        }
     }
 
     private static void printArray(int[] array) {
         System.out.print("[");
-        for (int i=0;i<array.length;i++) {
-            System.out.print(array[i]+" ");
+        for (int i=0;i<array.length-1;i++) {
+            System.out.print(array[i]+", ");
         }
-        System.out.println("]");
+        System.out.print(array[array.length-1]+"]");
     }
 
     public static void main(String[] argv) {
