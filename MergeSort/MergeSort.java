@@ -1,12 +1,14 @@
 public class MergeSort {
     private static void mergeSort(int[] unsorted) {
+        System.out.print("\nBefore: ");
         printArray(unsorted);
         mergeSort(unsorted, 0, unsorted.length);
+        System.out.print("After: ");
         printArray(unsorted);
     }
 
     private static void mergeSort(int[] unsorted, int startIndex, int endIndex) {
-        System.out.print("["+startIndex+":"+endIndex+"] ");
+        //System.out.print("["+startIndex+":"+endIndex+"] ");
 
         //recursion base case
         if ((endIndex - startIndex) <= 1) return;
@@ -14,21 +16,26 @@ public class MergeSort {
         //sort halves separately
         int middle =((endIndex - startIndex) / 2)+startIndex;
         mergeSort(unsorted, startIndex, middle);
-        mergeSort(unsorted, middle+1, endIndex);
+        mergeSort(unsorted, middle, endIndex);
 
         //merge sorted halves
         mergeHalves(unsorted, startIndex, middle, endIndex);
     }
 
+/*
+    private static void mergeHalves(int[] array, int startIndex, int middle, int endIndex) {
+
+    }
+*/
     private static void mergeHalves(int[] array, int startIndex, int middle, int endIndex) {
         int leftIndex = startIndex;
-        int rightIndex = middle+1;
+        int rightIndex = middle;
 
         //stage our sorting here
         int[] temp = new int[array.length];
         int tempIndex = startIndex;
 
-        while (leftIndex <= middle && rightIndex < endIndex) {
+        while (leftIndex < middle && rightIndex < endIndex) {
             if (array[leftIndex] < array[rightIndex]) {
                 temp[tempIndex++] = array[leftIndex++]; 
             } else {
@@ -37,7 +44,7 @@ public class MergeSort {
         }
         
         //copy any remaining uncopied values over to the temp array
-        while(leftIndex <= middle) {
+        while(leftIndex < middle) {
             temp[tempIndex++] = array[leftIndex++];
         }
 
@@ -60,13 +67,19 @@ public class MergeSort {
     }
 
     public static void main(String[] argv) {
-        //int[] unsorted = {0, 99, 42, 71, 1, 6};
-        //mergeSort(unsorted);
+        int[] array1 = {3};
+        mergeSort(array1);
 
-        int[] smallArray = {5, 4, 3, 2, 1};
-        mergeSort(smallArray);
+        int[] array2 = {3,0};
+        mergeSort(array2);
 
-        //int[] array = {0, 99, 42, 71, 1, 6, 9, 50, -4, 43, 100041};
-        //mergeSort(array);
+        int[] array3 = {0,-10,-1};
+        mergeSort(array3);
+
+        int[] array4 = {-1, -10, 5, 30034, 4, 35, 10, -300, 4};
+        mergeSort(array4);
+
+        int[] array5 = {0, 99, 42, 71, 1, 6, 9, 50, -4, 43, 100041};
+        mergeSort(array5);
     }
 }
