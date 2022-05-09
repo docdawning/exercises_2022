@@ -6,14 +6,14 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch Colourful",
+            "name": "Java Colourful",
             "request": "launch",
             "mainClass": "Colourful",
-            "projectName": "exercises_2022.git_499a3bde"
+            "cwd": "${workspaceFolder}\\java\\colorful"
         },
         {
             "type": "java",
-            "name": "Launch Colourful",
+            "name": "Java Colourful",
             "request": "launch",
             "mainClass": "Colourful",
             "projectName": "meta.git_32749941"
@@ -27,10 +27,17 @@
         },
         {
             "type": "java",
-            "name": "MergeSort",
+            "name": "Java MergeSort",
             "request": "launch",
             "mainClass": "MergeSort",
-            "cwd": "${workspaceFolder}\\MergeSort"
+            "cwd": "${workspaceFolder}\\java\\MergeSort"
+        },
+        {
+            "name": "Python Battleship",
+            "type": "python",
+            "request": "launch",
+            "program": "python\\battleship\\battleship.py",
+            "console": "integratedTerminal"
         },
         {
             "name": "Python: Current File",

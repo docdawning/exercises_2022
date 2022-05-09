@@ -1,7 +1,5 @@
 {
     "java.project.sourcePaths": [
-        "colourful",
-        "cafeteria",
-        "MergeSort"
+        "java/MergeSort"
     ]
 }
