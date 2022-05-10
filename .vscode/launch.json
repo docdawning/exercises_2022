@@ -40,6 +40,13 @@
             "console": "integratedTerminal"
         },
         {
+            "name": "Python merge_sort",
+            "type": "python",
+            "request": "launch",
+            "program": "python\\merge_sort\\merge_sort.py",
+            "console": "integratedTerminal"
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
