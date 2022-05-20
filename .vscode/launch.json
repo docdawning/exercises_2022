@@ -47,6 +47,13 @@
             "console": "integratedTerminal"
         },
         {
+            "name": "Python merge_sort2",
+            "type": "python",
+            "request": "launch",
+            "program": "python\\merge_sort\\merge_sort2.py",
+            "console": "integratedTerminal"
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
